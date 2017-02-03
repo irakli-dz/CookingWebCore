@@ -1,0 +1,11 @@
+﻿@model CookingWebCore.ViewModels.RecipiesListViewModel
+
+    @foreach (var recipie in Model.Recipies)
+    {
+        <div>
+            <h2> @recipie.RecipieName</h2>
+            <h2> @recipie.Type</h2>
+            
+        </div>
+
+    }

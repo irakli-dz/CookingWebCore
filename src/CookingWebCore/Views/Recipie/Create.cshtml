@@ -1,0 +1,39 @@
+﻿@using CookingWebCore.Models
+
+@model CookingWebCore.ViewModels.RecipieEditViewModel
+
+<h2>Create</h2>
+
+<div>
+    @using (Html.BeginForm())
+    {
+        <div>
+            @Html.LabelFor(m => m.RecipieName)
+            @Html.TextBoxFor(m => m.RecipieName)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.CuisineType)
+            @Html.DropDownListFor(m => m.CuisineType, Html.GetEnumSelectList(typeof(CuisineType)))
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.FoodType)
+            @Html.DropDownListFor(m => m.FoodType, Html.GetEnumSelectList(typeof(FoodType)))
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.Ingredients)
+            @Html.DropDownListFor(m => m.Ingredients, new SelectList(Model.Ingredients, "IngredientId", "IngredientName"))
+        </div>
+
+        <div>
+            <input type="submit" value="Save" />
+        </div>
+
+
+    }
+
+
+
+
+</div>

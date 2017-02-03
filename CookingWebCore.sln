@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FC9A645F-FB21-4BB8-A7B5-E70F42A9137A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9F0A4BD8-3E50-441B-8150-45F5CF115CDA}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "CookingWebCore", "src\CookingWebCore\CookingWebCore.xproj", "{A04104FE-58B2-45FC-A016-20E843FA2BDB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A04104FE-58B2-45FC-A016-20E843FA2BDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A04104FE-58B2-45FC-A016-20E843FA2BDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A04104FE-58B2-45FC-A016-20E843FA2BDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A04104FE-58B2-45FC-A016-20E843FA2BDB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A04104FE-58B2-45FC-A016-20E843FA2BDB} = {FC9A645F-FB21-4BB8-A7B5-E70F42A9137A}
+	EndGlobalSection
+EndGlobal
