@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -20,22 +21,32 @@ namespace CookingWebCore.Models
     public enum FoodType
     {
         None,
-        Vegitarian,
-        Beef,
-        Pork,
-        Fish,
+        Vegetarian,
+        meat,
         Seafood,
         Misc
     }
 
     public class Recipie
     {
-        public int RecipieId { get; set; }
-        public string RecipieName { get; set; }
+        [Key]
+        public int Id { get; set; }
+
+        
+        public string Name { get; set; }
+
         public CuisineType Cuisine { get; set; }
         public FoodType Type { get; set; }
         public string Preparation { get; set; }
         public bool Fast { get; set; }
-        public virtual Ingredient Ingredient { get; set; }
+
+        //[Required]
+        //public int IngredientId { get; set; }
+
+        //public Ingredient Ingredient { get; set; }
+
+        public IEnumerable<RecipieIngredient> RecipieIngredient { get; set; }
+
+
     }
 }

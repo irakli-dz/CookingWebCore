@@ -8,9 +8,10 @@ using CookingWebCore.Models;
 namespace CookingWebCore.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170207105521_initial2")]
+    partial class initial2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.0-rtm-22752")
@@ -30,47 +31,33 @@ namespace CookingWebCore.Migrations
 
             modelBuilder.Entity("CookingWebCore.Models.Recipie", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("RecipieId")
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("Cuisine");
 
                     b.Property<bool>("Fast");
 
-                    b.Property<string>("Name");
+                    b.Property<int>("IngredientId");
 
                     b.Property<string>("Preparation");
 
+                    b.Property<string>("RecipieName");
+
                     b.Property<int>("Type");
 
-                    b.HasKey("Id");
+                    b.HasKey("RecipieId");
+
+                    b.HasIndex("IngredientId");
 
                     b.ToTable("Recipies");
                 });
 
-            modelBuilder.Entity("CookingWebCore.Models.RecipieIngredient", b =>
-                {
-                    b.Property<int>("RecipieId");
-
-                    b.Property<int>("IngredientId");
-
-                    b.HasKey("RecipieId", "IngredientId");
-
-                    b.HasIndex("IngredientId");
-
-                    b.ToTable("RecipieIngredient");
-                });
-
-            modelBuilder.Entity("CookingWebCore.Models.RecipieIngredient", b =>
+            modelBuilder.Entity("CookingWebCore.Models.Recipie", b =>
                 {
                     b.HasOne("CookingWebCore.Models.Ingredient", "Ingredient")
-                        .WithMany("RecipieIngredient")
+                        .WithMany("Recipies")
                         .HasForeignKey("IngredientId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("CookingWebCore.Models.Recipie", "Recipie")
-                        .WithMany("RecipieIngredient")
-                        .HasForeignKey("RecipieId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
         }

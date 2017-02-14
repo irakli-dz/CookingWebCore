@@ -5,11 +5,19 @@
 <h2>Create</h2>
 
 <div>
-    @using (Html.BeginForm())
-    {
+    
+        @using (Html.BeginForm("Save", "Recipie"))
+        {
         <div>
             @Html.LabelFor(m => m.RecipieName)
             @Html.TextBoxFor(m => m.RecipieName)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Preparation)
+            @Html.TextBoxFor(m => m.Preparation)
+        </div>
+        <div>
+            @Html.CheckBoxFor(m => m.Fast)
         </div>
         <div>
             @Html.LabelFor(m => m.CuisineType)
@@ -21,19 +29,34 @@
             @Html.DropDownListFor(m => m.FoodType, Html.GetEnumSelectList(typeof(FoodType)))
         </div>
 
-        <div>
-            @Html.LabelFor(m => m.Ingredients)
-            @Html.DropDownListFor(m => m.Ingredients, new SelectList(Model.Ingredients, "IngredientId", "IngredientName"))
-        </div>
+        @*<div>
+            @Html.LabelFor(m => m.Ingredient)
+            @Html.DropDownListFor(m => m.Ingredient, new SelectList(Model.Ingredients, "IngredientId", "IngredientName"))
+            </div>*@
+            <div class="checkbox">
+                @for (int i = 0; i < Model.Ingredients.Count(); i++)
+                {
+
+                    @Html.DisplayFor(m => m.Ingredients[i].IngredientName)
+                    <label>
+                        @Html.CheckBoxFor(m => m.Ingredients[i].checkBoxAnswer)
+                    </label>
+                    @Html.Raw("&nbsp; &nbsp;")
+                    @Html.HiddenFor(m => m.Ingredients[i].IngredientId)
+                    @Html.HiddenFor(m => m.Ingredients[i].IngredientName)
+
+                }
+
+            </div>
+        
+        
 
         <div>
-            <input type="submit" value="Save" />
+            
+            <input  type="submit" class="btn btn-primary" value="Save">
         </div>
 
 
     }
-
-
-
 
 </div>

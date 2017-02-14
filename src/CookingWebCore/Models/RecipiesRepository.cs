@@ -19,13 +19,33 @@ namespace CookingWebCore.Models
         {
             get
             {
-                return _appDbContext.Recipies.Include(i=>i.Ingredient);
+                return _appDbContext.Recipies.Include(ir => ir.RecipieIngredient).ThenInclude(x => x.Ingredient).ToList();
+               // return _appDbContext.Recipies.Include(ir => ir.RecipieIngredient.Select(x => x.Ingredient));
             }
+        }
+
+        public Recipie Add(Recipie newRecipie)
+        {
+            //newRecipie.Id = _appDbContext.Recipies.Max(r => r.Id) + 1;
+            _appDbContext.Add(newRecipie);
+
+            //try
+            //{
+            //    _appDbContext.SaveChanges();
+            //}
+            //catch (DbUpdateException e)
+            //{
+
+            //    Console.WriteLine(e); 
+            //}
+            _appDbContext.SaveChanges();
+
+            return newRecipie;
         }
 
         public Recipie GetRecipieById(int id)
         {
-            return _appDbContext.Recipies.FirstOrDefault(r => r.RecipieId == id); ;
+            return _appDbContext.Recipies.FirstOrDefault(r => r.Id == id); ;
         }
     }
 }

@@ -11,7 +11,12 @@ namespace CookingWebCore.ViewModels
 
         public IEnumerable<Recipie> Recipies { get; set; }
 
-        public string CurrentIngredient { get; set; }
+        //public IEnumerable<int> SelectedIngredients { get; set; }
+
+        //public List<Ingredient> Ingredients { get; set; }
+        //public IEnumerable<RecipieIngredient> RecipieIngredients { get; set; }
+
+        //public string CurrentIngredient { get; set; }
 
 
 

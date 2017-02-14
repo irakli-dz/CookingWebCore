@@ -9,5 +9,7 @@ namespace CookingWebCore.Models
     {
         IEnumerable<Recipie> Recipies { get; }
         Recipie GetRecipieById(int id);
+        Recipie Add(Recipie newRecipie);
+        
     }
 }

@@ -1,11 +1,17 @@
 ﻿@model CookingWebCore.ViewModels.RecipiesListViewModel
 
-    @foreach (var recipie in Model.Recipies)
-    {
-        <div>
-            <h2> @recipie.RecipieName</h2>
-            <h2> @recipie.Type</h2>
-            
+@foreach (var recipie in Model.Recipies)
+{
+  
+    <div class="col-sm-4 col-lg-4 col-md-4">
+        <div class="thumbnail">
+            @*<img src="@pie.ImageThumbnailUrl" alt="">*@
+            <div class="caption">
+                <h3 class="pull-right">@recipie.Name</h3>
+          
+            </div>
         </div>
+    </div>
 
-    }
+
+}
