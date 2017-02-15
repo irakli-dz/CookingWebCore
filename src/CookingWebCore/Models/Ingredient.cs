@@ -10,11 +10,12 @@ namespace CookingWebCore.Models
     public class Ingredient
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IngredientId { get; set; }
 
         public string IngredientName { get; set; }
 
-        public IEnumerable<RecipieIngredient> RecipieIngredient { get; set; }
+        public List<RecipieIngredient> RecipieIngredient { get; set; }
 
         [NotMapped]
         public bool checkBoxAnswer { get; set; }

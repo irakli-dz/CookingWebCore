@@ -56,24 +56,36 @@ namespace CookingWebCore.Controllers
         {
             if (ModelState.IsValid)
             {
-                var newRecipie = new Recipie()
+                var newRecipie = new Recipie
                 {
                     Name = viewModel.RecipieName,
                     Preparation = viewModel.Preparation,
                     Fast = viewModel.Fast,
-                    
-                    
-                    //IngredientId = viewModel.Ingredient,
                     Type = viewModel.FoodType,
                     Cuisine = viewModel.CuisineType,
-                    //Ingredient = _context.Ingredients.Single(r => r.IngredientId == viewModel.Ingredient)
-                    //Ingredient = _ingredientRepository.Ingredients.Single(r => r.IngredientId == viewModel.Ingredient),
-                    //Id = 2
-                  
-                    
-
+         
                 };
-                var selectedIngredients = viewModel.Ingredients.Where(x => x.checkBoxAnswer).Select(x => x.IngredientId).ToList();
+
+                IEnumerable<int> selectedIngredientIds = viewModel.Ingredients.Where(x => x.checkBoxAnswer).Select(x => x.IngredientId).ToList();
+                //customer.CustomerDevices = new List<CustomerDevice>();
+                newRecipie.RecipieIngredient = new List<RecipieIngredient>();
+
+                foreach (int ingredientId in selectedIngredientIds)
+                {
+                    newRecipie.RecipieIngredient.Add(new RecipieIngredient
+
+                    {
+                        Recipie = newRecipie,
+                        IngredientId = ingredientId
+                    });
+
+                }
+
+
+
+
+
+
 
 
                 //for (int i = 0; i < viewModel.Ingredients.Count(); i++)
@@ -84,16 +96,7 @@ namespace CookingWebCore.Controllers
                 //    }
                 //}
 
-                //newRecipie.Name = model.Recipie.Name;
-                //newRecipie.Cuisine = model.Recipie.Cuisine;
-                //newRecipie.Preparation = model.Recipie.Preparation;
-                //newRecipie.IngredientId= model.Recipie.IngredientId;
-                //newRecipie.Type = model.Recipie.Type;
-                //newRecipie.Fast = model.Recipie.Fast;
 
-
-
-                // _context.Recipies.Add(newRecipie);
                 _recipieRepository.Add(newRecipie);
 
 

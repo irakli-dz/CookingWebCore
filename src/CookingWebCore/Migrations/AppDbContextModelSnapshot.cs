@@ -19,7 +19,8 @@ namespace CookingWebCore.Migrations
             modelBuilder.Entity("CookingWebCore.Models.Ingredient", b =>
                 {
                     b.Property<int>("IngredientId")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("IngredientName");
 
@@ -31,7 +32,8 @@ namespace CookingWebCore.Migrations
             modelBuilder.Entity("CookingWebCore.Models.Recipie", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("Cuisine");
 

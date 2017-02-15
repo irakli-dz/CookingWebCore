@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -30,6 +31,7 @@ namespace CookingWebCore.Models
     public class Recipie
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         
@@ -45,7 +47,7 @@ namespace CookingWebCore.Models
 
         //public Ingredient Ingredient { get; set; }
 
-        public IEnumerable<RecipieIngredient> RecipieIngredient { get; set; }
+        public List<RecipieIngredient> RecipieIngredient { get; set; }
 
 
     }
